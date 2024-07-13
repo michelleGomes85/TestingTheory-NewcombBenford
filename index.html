@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <title>Validação da Lei de Newcomb-Benford</title>
+</head>
+
+<body>
+
+    <main>
+        <div class="container-outside">
+
+            <div class="container">
+                
+                <h1>Validação da Lei de Newcomb-Benford</h1>
+
+                <div class="form">
+
+                    <div class="items">
+                        <label for="separator">Separador palavras</label>
+
+                        <select id="separator" name="separator">
+                            <option value=" ">ESPAÇO</option>
+                            <option value="Enter">ENTER</option>
+                        </select>
+                    </div>
+
+                    <div class="items">
+                        <label for="numbers">Necessário pelo menos 50 números para validar a teoria</label>
+                        <textarea id="numbers" name="numbers" rows="5" maxlength="300"></textarea>
+
+                        <div class="progress">
+                            
+                            <div class="progress-container">
+                                <div class="progress-bar" id="progress-bar"></div>
+                            </div>
+
+                            <p><span class="cont">0</span> / 50</p>
+                        </div>
+
+                    </div>
+
+                    <div class="items-button">
+                        <button id="btn-analyze" type="submit">Analisar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div><!--container-outside-->
+
+        <div class="graphic">
+            <div class="graphic-size">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- My JS -->
+    <script src="javaScript.js"></script>
+</body>
+
+</html>
