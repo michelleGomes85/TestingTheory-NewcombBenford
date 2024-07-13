@@ -1,0 +1,116 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #038288, #156C99);
+}
+
+.container-outside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 500px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #0575ad;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+.progress {
+    display: flex;
+    gap: 1vw;
+}
+
+.progress p {
+
+    font-weight: bold;
+    color: #0575ad;
+}
+
+.progress-container {
+    width: 85%;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: red;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+span.cont {
+    color: red;
+}
+
+.items-button {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #156C99;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0AA009;
+}
+
+.graphic {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+}
+
+.graphic-size {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+}
