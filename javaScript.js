@@ -9,6 +9,7 @@ let myChart = null;
 
 separatorSelect.onchange = function() {
     textarea.value = '';
+    textarea.style.borderColor = '#ccc';
     updateProgress();
 }
 
@@ -20,12 +21,16 @@ textarea.onkeyup = function (event) {
 
 btn_analyze.onclick = function () {
 
-    if (textarea.value != '') {
+    if (textarea.value.trim() != '') {
+        textarea.style.borderColor = 'green';
         let separator = (separatorSelect.value == 'Enter') ? '\n' : separatorSelect.value;
         const numArray = textarea.value.trim().split(separator);
 
         let array = cont_numbers(numArray);;
         show(array);
+    }else {
+        textarea.style.borderColor = 'red';
+        textarea.focus();
     }
 }
 
