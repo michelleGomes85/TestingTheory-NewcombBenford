@@ -1,30 +1,19 @@
 const textarea = document.getElementById('numbers');
-const separatorSelect = document.querySelector('#separator');
+const separator_select = document.querySelector('#separator');
 const progress_bar = document.querySelector('#progress-bar');
 const cont_span = document.querySelector('.cont');
 const max_span = document.querySelector('.max');
 const graphic = document.querySelector('.graphic');
 const btn_analyze = document.querySelector('#btn-analyze');
+const btn_random = document.querySelector('#btn-random');
 
 let myChart = null;
-
-separatorSelect.onchange = function() {
-    textarea.value = '';
-    textarea.style.borderColor = '#ccc';
-    updateProgress();
-}
-
-textarea.onkeyup = function (event) {
-
-    if (event.key != separatorSelect.value)
-        updateProgress();
-}
 
 btn_analyze.onclick = function () {
 
     if (textarea.value.trim() != '') {
         textarea.style.borderColor = 'green';
-        let separator = (separatorSelect.value == 'Enter') ? '\n' : separatorSelect.value;
+        let separator = (separator_select.value == 'Enter') ? '\n' : separator_select.value;
         const numArray = textarea.value.trim().split(separator);
 
         let array = cont_numbers(numArray);;
@@ -35,9 +24,33 @@ btn_analyze.onclick = function () {
     }
 }
 
+btn_random.onclick = function() {
+    let numbers = generate_random_numbers(50);
+    let text = '';
+    for (let num of numbers) {
+        text += num + getSeparatorValue();
+    }
+
+    textarea.value = text;
+
+    update_progress();
+}
+
+separator_select.onchange = function() {
+    textarea.value = '';
+    textarea.style.borderColor = '#ccc';
+    update_progress();
+}
+
+textarea.onkeyup = function (event) {
+
+    if (event.key != separator_select.value)
+        update_progress();
+}
+
 textarea.addEventListener('keydown', function (event) {
     
-    let key = separatorSelect.value;
+    let key = separator_select.value;
 
     const allowedKeys = [
         'Backspace', 'Delete', 'Tab',
@@ -49,7 +62,7 @@ textarea.addEventListener('keydown', function (event) {
     const isAllowedNumberOrSeparator = (event.key >= '0' && event.key <= '9') || event.key === key;
 
     // Permite CTRL+C, CTRL+V e CTRL+A
-    const isCopyPaste = (event.ctrlKey || event.metaKey) && (event.key === 'c' || event.key === 'v' || event.key === 'a') ;
+    const isCopyPaste = (event.ctrlKey || event.metaKey) && (event.key === 'c' || event.key === 'v' || event.key === 'a' || event.key === 'x' || event.key === 'z') ;
 
     if (!(isAllowedNumberOrSeparator || allowedKeys.includes(event.key) || isCopyPaste))
         event.preventDefault();
@@ -67,9 +80,9 @@ function verify_progress(numbers) {
     return cont;
 }
 
-function updateProgress() {
+function update_progress() {
 
-    let separator = (separatorSelect.value == 'Enter') ? '\n' : separatorSelect.value;
+    let separator = getSeparatorValue();
     const numArray = textarea.value.trim().split(separator);
 
     let cont = verify_progress(numArray);
@@ -83,9 +96,8 @@ function updateProgress() {
         color = 'red';
     else if (cont <= 49)
         color = '#FFC107';
-    else {
+    else
         color = 'green';
-    }
 
     progress_bar.style.backgroundColor = color;
     cont_span.style.color = color;
@@ -113,6 +125,22 @@ function cont_numbers(vet) {
     }
 
     return numbers;
+}
+
+function getSeparatorValue() {
+    return (separator_select.value == 'Enter') ? '\n' : separator_select.value;
+}
+
+function generate_random_numbers( amount) {
+
+    const random_numbers = [];
+
+    for (let i = 0; i <  amount; i++) {
+        const number = Math.floor(Math.random() * 9) + 1;
+        random_numbers.push(number);
+    }
+
+    return random_numbers;
 }
 
 function show(numbers) {
