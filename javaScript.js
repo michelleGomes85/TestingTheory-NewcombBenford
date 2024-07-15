@@ -2,6 +2,7 @@ const textarea = document.getElementById('numbers');
 const separatorSelect = document.querySelector('#separator');
 const progress_bar = document.querySelector('#progress-bar');
 const cont_span = document.querySelector('.cont');
+const max_span = document.querySelector('.max');
 const graphic = document.querySelector('.graphic');
 const btn_analyze = document.querySelector('#btn-analyze');
 
@@ -35,16 +36,22 @@ btn_analyze.onclick = function () {
 }
 
 textarea.addEventListener('keydown', function (event) {
-
+    
     let key = separatorSelect.value;
 
-    if (!(
-        (event.key >= '0' && event.key <= '9') ||
-        event.key === key ||
-        event.key === 'Backspace' || event.key === 'Delete' || event.key === 'Tab' ||
-        event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowUp' ||
-        event.key === 'ArrowDown' || event.key === 'End' || event.key === 'Home'
-    ))
+    const allowedKeys = [
+        'Backspace', 'Delete', 'Tab',
+        'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown',
+        'End', 'Home'
+    ];
+
+    // Verifica se a tecla pressionada é um número ou o separador
+    const isAllowedNumberOrSeparator = (event.key >= '0' && event.key <= '9') || event.key === key;
+
+    // Permite CTRL+C, CTRL+V e CTRL+A
+    const isCopyPaste = (event.ctrlKey || event.metaKey) && (event.key === 'c' || event.key === 'v' || event.key === 'a') ;
+
+    if (!(isAllowedNumberOrSeparator || allowedKeys.includes(event.key) || isCopyPaste))
         event.preventDefault();
 });
 
@@ -82,7 +89,11 @@ function updateProgress() {
 
     progress_bar.style.backgroundColor = color;
     cont_span.style.color = color;
-    cont_span.innerHTML = (cont < 50) ? cont : 50;
+
+    if (cont > 50)
+        max_span.innerHTML = cont;
+
+    cont_span.innerHTML = cont;
 
     if (cont == 0)
         graphic.style.display = 'none';
@@ -111,30 +122,6 @@ function show(numbers) {
 
     const ctx = document.getElementById('myChart');
 
-    const colors = [
-        'rgba(3, 130, 136, 0.5)',
-        'rgba(21, 108, 153, 0.5)',
-        'rgba(224, 248, 255, 0.5)',
-        'rgba(10, 160, 9, 0.5)',
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(255, 206, 86, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(153, 102, 255, 0.5)'
-    ];
-
-    const borderColors = [
-        'rgba(3, 130, 136, 1)',
-        'rgba(21, 108, 153, 1)',
-        'rgba(224, 248, 255, 1)',
-        'rgba(10, 160, 9, 1)',
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)'
-    ];
-
     myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -142,8 +129,8 @@ function show(numbers) {
             datasets: [{
                 label: 'Frequência do Primeiro Dígito',
                 data: numbers,
-                backgroundColor: colors,
-                borderColor: borderColors,
+                backgroundColor: 'rgba(3, 130, 136, 0.5)',
+                borderColor: 'rgba(3, 130, 136, 1)',
                 borderWidth: 1,
             }],
         },
