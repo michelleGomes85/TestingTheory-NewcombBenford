@@ -45,12 +45,12 @@ O botão "Gerar Números Aleatórios" permite ao usuário gerar uma lista de nú
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/seu-usuario/BreadcrumbsTestingTheory-NewcombBenford.git
+    git clone https://github.com/seu-usuario/TestingTheory-NewcombBenford.git
     ```
 
 2. Navegue até o diretório do projeto:
     ```sh
-    cd BreadcrumbsTestingTheory-NewcombBenford
+    cd TestingTheory-NewcombBenford
     ```
 
 3. Abra o arquivo `index.html` em um navegador web.
