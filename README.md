@@ -32,13 +32,6 @@ A Lei de Newcomb-Benford, ou Lei do Primeiro Dígito, descreve a frequência de 
 
 O botão **"Gerar Números Aleatórios"** permite gerar uma lista de números aleatórios. Este recurso demonstra como números aleatórios são gerados de forma objetiva e uniforme pelo computador, em contraste com escolhas subjetivas humanas.
 
-## Tecnologias Utilizadas
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1C?style=flat&logo=javascript&logoColor=black)
-![Chart.js](https://img.shields.io/badge/Chart.js-F6C343?style=flat&logo=chartjs&logoColor=black)
-
 ## Estrutura do Projeto
 
 - `index.html`: Estrutura HTML da página.
@@ -47,21 +40,18 @@ O botão **"Gerar Números Aleatórios"** permite gerar uma lista de números al
 
 ## Como Usar
 
-1. Clone o repositório:
-    ```sh
-    git clone https://github.com/seu-usuario/TestingTheory-NewcombBenford.git
-    ```
+1. Acesse a aplicação diretamente através do link no começo do arquivo.
 
-2. Navegue até o diretório do projeto:
-    ```sh
-    cd TestingTheory-NewcombBenford
-    ```
+2. Na página, selecione o separador de palavras, insira uma lista de números ou clique em **"Gerar Números Aleatórios"** para gerar uma lista automaticamente.
 
-3. Abra o arquivo `index.html` em um navegador web.
+3. Clique em **"Analisar"** para verificar a distribuição dos primeiros dígitos e visualizar o gráfico.
 
-4. Selecione o separador de palavras, insira uma lista de números ou clique em **"Números Aleatórios"** para gerar uma lista automaticamente.
+## Tecnologias Utilizadas
 
-5. Clique em **"Analisar"** para verificar a distribuição dos primeiros dígitos e visualizar o gráfico.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1C?style=flat&logo=javascript&logoColor=black)
+![Chart.js](https://img.shields.io/badge/Chart.js-F6C343?style=flat&logo=chartjs&logoColor=black)
 
 ![Captura de Tela](img-doc/screenshot1.png)
 ![Captura de Tela](img-doc/screenshot2.png)
