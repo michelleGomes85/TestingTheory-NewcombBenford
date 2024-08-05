@@ -1,5 +1,9 @@
 # Validação da Lei de Newcomb-Benford
 
+## Sobre o projeto
+
+- [**NewcombBenford**](https://michelleGomes85.github.io/TestingTheory-NewcombBenford/)
+
 Este projeto é uma aplicação web para validar a Lei de Newcomb-Benford, também conhecida como Lei de Benford. A aplicação permite ao usuário inserir uma lista de números ou gerar números aleatórios para verificar se a distribuição dos dígitos iniciais segue o padrão esperado pela teoria.
 
 ## Teoria da Lei de Newcomb-Benford
